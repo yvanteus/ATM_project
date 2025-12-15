@@ -6,10 +6,17 @@ class ATM:
         
     
     def display_balance(self, card: CreditCard) -> int:
+        
+        '''Метод возвращает баланс карты, запрашивая его у карты'''
+        
         return card.get_balance()
     
     
     def withdraw(self, card: CreditCard, amount: int) -> bool:
+        
+        '''Метод проверяет условия для снятия наличных
+        Проверяется наличие в устройстве необходимой суммы'''
+        
         if amount > self.has_cash:
             return False
         
@@ -20,6 +27,9 @@ class ATM:
     
     
     def deposit(self, card: CreditCard, amount: int) -> bool:
+        
+        '''Метод проверяет условия внесения наличных'''
+        
         if card.deposit(amount=amount):
             self.has_cash += amount
             return True
